@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Estudiante</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" 
+	integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon">
+    <style>
+        body {
+            height: 100vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: white !important;
+        }
+
+        .top {
+            background-color: rgb(64, 128, 128);
+            padding: 20px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .table-container {
+            margin-top: 30px;
+        }
+
+        .level {
+            font-weight: bold;
+        }
+
+        .nivel-color-1 {
+            background-color: #f87d7d; /* Rojo */
+        }
+
+        .nivel-color-2 {
+            background-color: #99ccff; /* Azul */
+        }
+
+        .nivel-color-3 {
+            background-color: #ffff99; /* Amarillo */
+        }
+
+        .nivel-color-4 {
+            background-color: #99ff99; /* Verde */
+        }
+
+        .info {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .table {
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" th:href="@{/estudiante/index}"></a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn my-2 my-sm-0" th:href="@{/}" aria-label="Logout">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Informe del Estudiante</h1>
+
+        <div class="table-container">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Asignatura</th>
+                        <th scope="col">Nivel</th>
+                        <th scope="col">Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comunicación Escrita</td>
+                        <td class="info nivel-color-1" th:class="${comunicacion <= 125 ? 'nivel-color-1' : (comunicacion <= 156 ? 'nivel-color-2' : (comunicacion <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${comunicacionLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${comunicacion}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Razonamiento Cuantitativo</td>
+                        <td class="info nivel-color-1" th:class="${razonamiento <= 125 ? 'nivel-color-1' : (razonamiento <= 156 ? 'nivel-color-2' : (razonamiento <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${razonamientoLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${razonamiento}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lectura Crítica</td>
+                        <td class="info nivel-color-1" th:class="${lectura <= 125 ? 'nivel-color-1' : (lectura <= 156 ? 'nivel-color-2' : (lectura <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${lecturaLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${lectura}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Competencias Ciudadanas</td>
+                        <td class="info nivel-color-1" th:class="${competencias <= 125 ? 'nivel-color-1' : (competencias <= 156 ? 'nivel-color-2' : (competencias <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${competenciasLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${competencias}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inglés</td>
+                        <td class="info nivel-color-1" th:class="${ingles <= 125 ? 'nivel-color-1' : (ingles <= 156 ? 'nivel-color-2' : (ingles <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${inglesLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${ingles}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Formulación de Proyectos de Ingeniería</td>
+                        <td class="info nivel-color-1" th:class="${formulacion <= 125 ? 'nivel-color-1' : (formulacion <= 156 ? 'nivel-color-2' : (formulacion <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${formulacionLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${formulacion}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pensamiento Científico</td>
+                        <td class="info nivel-color-1" th:class="${pensamiento <= 125 ? 'nivel-color-1' : (pensamiento <= 156 ? 'nivel-color-2' : (pensamiento <= 191 ? 'nivel-color-3' : 'nivel-color-4'))}">
+                            <span th:text="${pensamientoLevel}"></span>
+                        </td>
+                        <td class="info">
+                            <span th:text="${pensamiento}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

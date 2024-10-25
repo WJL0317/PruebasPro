@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" 
+	integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <title>PruebasPro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon"> <!-- Icono favicon -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(221, 251, 244); /* Fondo */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background: rgb(255, 255, 255); /* Fondo blanco semitransparente */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 40px;
+            box-shadow: 0 5px 25px rgb(0, 0, 0); /* Sombra suave alrededor del contenedor */
+            max-width: 400px; /* Ancho máximo del contenedor */
+            width: 100%; /* Ancho completo */
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px; /* Espaciado inferior */
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+            background-color: rgb(128, 128, 255); /* Color de fondo del botón */
+            color: rgb(255, 255, 255); /* Color del texto del botón */
+        }
+
+        .btn-large:hover {
+            background-color: rgb(64, 0, 128); /* Cambia el color del fondo al pasar el mouse */
+            transform: translateY(-2px); /* Levanta el botón ligeramente */
+        }
+
+        h1 {
+            font-weight: 700; /* Texto más audaz */
+            margin: 10px 0; /* Margen superior e inferior */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>¡Bienvenidos!</h1>
+            <h2>Selecciona tu usuario</h2>
+        </div>
+        <div class="btn-container text-center">
+            <a th:href="@{/coordinador/login}" class="btn btn-primary btn-lg btn-large">Coordinador</a>
+            <a th:href="@{/estudiante/login}" class="btn btn-primary btn-lg btn-large">Estudiante</a>
+        </div>
+    </div>
+</body>
+
+</html>
