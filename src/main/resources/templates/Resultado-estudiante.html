@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe del Estudiante</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" 
+	integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <link rel="icon" href="../img/iconoWeb.webp" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: #007bff; /* Azul */
+        }
+
+        .navbar-title {
+            color: white;
+        }
+
+        .card {
+            margin-top: 30px;
+            border-radius: 15px;
+        }
+
+        .table th {
+            background-color: #f2f2f2; /* Gris claro */
+        }
+
+        .btn-logout {
+            background-color: #dc3545; /* Rojo */
+            color: white;
+        }
+
+        .btn-logout:hover {
+            background-color: #c82333; /* Rojo oscuro */
+        }
+
+        .title-center {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="navbar-title">
+            <h1>Puntaje</h1>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-logout" href="/logout" aria-label="Logout">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Informe del Estudiante</h1>
+        <div class="card mx-auto" style="max-width: 800px;">
+            <div class="card-body">
+                <h5 class="card-title text-center" th:text="${estudiante.primerNombre} + ' ' + ${estudiante.segundoNombre}"></h5>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>ID:</th>
+                            <td th:text="${estudiante.id}"></td>
+                        </tr>
+                        <tr>
+                            <th>Usuario:</th>
+                            <td th:text="${estudiante.usuario}"></td>
+                        </tr>
+                        <tr>
+                            <th>Tipo de documento:</th>
+                            <td th:text="${estudiante.tipoDocumento}"></td>
+                        </tr>
+                        <tr>
+                            <th>Número de documento:</th>
+                            <td th:text="${estudiante.numeroDocumento}"></td>
+                        </tr>
+                        <tr>
+                            <th>Primer Apellido:</th>
+                            <td th:text="${estudiante.primerApellido}"></td>
+                        </tr>
+                        <tr>
+                            <th>Segundo Apellido:</th>
+                            <td th:text="${estudiante.segundoApellido}"></td>
+                        </tr>
+                        <tr>
+                            <th>Primer Nombre:</th>
+                            <td th:text="${estudiante.primerNombre}"></td>
+                        </tr>
+                        <tr>
+                            <th>Segundo Nombre:</th>
+                            <td th:text="${estudiante.segundoNombre}"></td>
+                        </tr>
+                        <tr>
+                            <th>Correo Electrónico:</th>
+                            <td th:text="${estudiante.correoElectronico}"></td>
+                        </tr>
+                        <tr>
+                            <th>Número Telefónico:</th>
+                            <td th:text="${estudiante.numeroTelefonico}"></td>
+                        </tr>
+                        <tr>
+                            <th>Número de registro:</th>
+                            <td th:text="${estudiante.numeroRegistro}"></td>
+                        </tr>
+                        <tr>
+                            <th>Puntaje Saber Pro:</th>
+                            <td th:text="${estudiante.puntaje}"></td>
+                        </tr>
+                        <tr>
+                            <th>Puntaje Nivel Saber Pro:</th>
+                            <td th:text="${estudiante.nivelSaberPro}"></td>
+                        </tr>
+                        <tr>
+                            <th>Comunicación Escrita:</th>
+                            <td th:text="${estudiante.comunicacionEscrita}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Comunicación Escrita:</th>
+                            <td th:text="${estudiante.nivelComunicacionEscrita}"></td>
+                        </tr>
+                        <tr>
+                            <th>Razonamiento Cuantitativo:</th>
+                            <td th:text="${estudiante.razonamientoCuantitativo}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Razonamiento Cuantitativo:</th>
+                            <td th:text="${estudiante.nivelRazonamientoCuantitativo}"></td>
+                        </tr>
+                        <tr>
+                            <th>Lectura Crítica:</th>
+                            <td th:text="${estudiante.lecturaCritica}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Lectura Crítica:</th>
+                            <td th:text="${estudiante.nivelLecturaCritica}"></td>
+                        </tr>
+                        <tr>
+                            <th>Competencias Ciudadanas:</th>
+                            <td th:text="${estudiante.competenciasCiudadanas}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Competencias Ciudadanas:</th>
+                            <td th:text="${estudiante.nivelCompetenciasCiudadanas}"></td>
+                        </tr>
+                        <tr>
+                            <th>Inglés:</th>
+                            <td th:text="${estudiante.ingles}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel Inglés:</th>
+                            <td th:text="${estudiante.nivelIngles}"></td>
+                        </tr>
+                        <tr>
+                            <th>Formulación De Proyectos De Ingeniería:</th>
+                            <td th:text="${estudiante.formulacionProyectosIngenieria}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Formulación De Proyectos De Ingeniería:</th>
+                            <td th:text="${estudiante.nivelFormulacionProyectosIngenieria}"></td>
+                        </tr>
+                        <tr>
+                            <th>Pensamiento Científico - Matemáticas Y Estadística:</th>
+                            <td th:text="${estudiante.pensamientoCientifico}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Pensamiento Científico - Matemáticas Y Estadística:</th>
+                            <td th:text="${estudiante.nivelPensamientoCientifico}"></td>
+                        </tr>
+                        <tr>
+                            <th>Diseño De Software:</th>
+                            <td th:text="${estudiante.diseñoSoftware}"></td>
+                        </tr>
+                        <tr>
+                            <th>Nivel de Diseño De Software:</th>
+                            <td th:text="${estudiante.nivelDiseñoSoftware}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <a class="btn btn-logout" href="/logout">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
